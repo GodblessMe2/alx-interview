@@ -12,11 +12,11 @@ if (process.argv.length > 2) {
             reject(promiseErr);
           }
           resolve(JSON.parse(charactersBody).name);
-       });
+        });
       })
     );
     Promise.all(charactersByName)
       .then(names => console.log(names.join('\n')))
       .catch(err => console.log(err));
   });
-};
+}
