@@ -7,11 +7,11 @@ if (process.argv.length > 2) {
     const charactersURL = JSON.parse(body).characters;
     const charactersByName = charactersURL.map(
       url => new Promise((resolve, reject) => {
-        request(url, (promiseErr, __, charactersReqBody) => {
-          if(promiseErr) {
+        request(url, (promiseErr, __, charactersBody) => {
+          if (promiseErr) {
             reject(promiseErr);
           }
-          resolve(JSON.parse(charactersReqBody).name);
+          resolve(JSON.parse(charactersBody).name);
        });
       })
     );
